@@ -1,10 +1,11 @@
+import os
 import pexpect
 
 PROMPT = '#'
 IP = '172.31.107.4'
 LOOPBACK = '172.16.2.2'
-USERNAME = 'admin'
-PASSWORD = 'cisco'
+USERNAME = os.environ.get('TELNET_USER')
+PASSWORD = os.environ.get('TELNET_PASSWORD')
 
 child = pexpect.spawn('telnet ' + IP)
 child.expect('Username')
